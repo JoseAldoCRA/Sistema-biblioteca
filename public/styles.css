@@ -58,3 +58,86 @@ tbody tr:hover {
 tbody tr:last-child td {
     border-bottom: none;
 }
+
+/* Inicio de sesión */
+
+.login-contenedor {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.login-tarjeta {
+    background-color: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+}
+
+.login-tarjeta h1 {
+    color: #194875;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-tarjeta h2 {
+    color: #263b55;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#formLogin label {
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+#formLogin input {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#formLogin button {
+    background-color: #194875;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#formLogin button:hover {
+    background-color: #123456;
+}
+
+#mensajeLogin {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-registro {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-registro a {
+    color: #194875;
+    font-weight: 600;
+}

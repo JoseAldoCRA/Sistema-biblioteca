@@ -1,47 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catálogo de biblioteca</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="catalogo.js" defer></script>
-  </head>
-  <body>
-    <main>
-      <h1>Sistema de biblioteca</h1>
-      <h2>Catálogo de libros</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - Sistema de Biblioteca</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-      <form id="formulario-busqueda">
-        <label for="busqueda">Buscar libro</label>
-        <input type="search" id="busqueda" placeholder="Título, autor o ISBN" />
+    <main class="login-contenedor">
 
-        <label for="categoria">Categoría</label>
-        <select id="categoria">
-          <option value="">Todas las categorías</option>
-        </select>
+        <div class="login-tarjeta">
 
-        <button type="submit">Buscar</button>
-        <button type="button" id="limpiar">Limpiar filtros</button>
-      </form>
+            <h1>Sistema de Biblioteca</h1>
+            <h2>Iniciar sesión</h2>
 
-      <p id="mensaje" role="status">Cargando libros...</p>
+            <form id="formLogin">
 
-      <div class="contenedor-tabla">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">ISBN</th>
-              <th scope="col">Título</th>
-              <th scope="col">Autor</th>
-              <th scope="col">Categoría</th>
-              <th scope="col">Total de ejemplares</th>
-              <th scope="col">Disponibles</th>
-            </tr>
-          </thead>
-          <tbody id="lista-libros"></tbody>
-        </table>
-      </div>
+                <label for="correo">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="usuario@biblio.com"
+                    required
+                >
+
+                <label for="contrasena">Contraseña</label>
+                <input
+                    type="password"
+                    id="contrasena"
+                    name="contrasena"
+                    placeholder="Ingresa tu contraseña"
+                    required
+                >
+
+                <button type="submit">Ingresar</button>
+
+            </form>
+
+            <p id="mensajeLogin" role="status"></p>
+
+            <p class="login-registro">
+                ¿No tienes cuenta?
+                <a href="#">Regístrate aquí</a>
+            </p>
+
+        </div>
+
     </main>
-  </body>
+
+    <script src="login.js"></script>
+
+</body>
 </html>
