@@ -23,6 +23,51 @@ async function iniciarSesion(req, res) {
     }
 }
 
+async function verificarSesion(req, res) {
+    try {
+        const autorizacion = req.headers.authorization;
+
+        if (!autorizacion || !autorizacion.startsWith('Bearer ')) {
+            return res.status(401).json({
+                mensaje: 'No has iniciado sesión'
+            });
+        }
+
+        const token = autorizacion.split(' ')[1];
+
+        const supabase = require('../config/supabase');
+        const usuariosRepository = require('../repositories/usuariosRepository');
+
+        const { data, error } = await supabase.auth.getUser(token);
+
+        if (error || !data.user) {
+            return res.status(401).json({
+                mensaje: 'Sesión inválida o expirada'
+            });
+        }
+
+        const usuario = await usuariosRepository.buscarPorAuthId(data.user.id);
+
+        if (!usuario || usuario.estado !== 'activo') {
+            return res.status(403).json({
+                mensaje: 'Usuario sin acceso al sistema'
+            });
+        }
+
+        res.status(200).json({
+            usuario: usuario
+        });
+
+    } catch (error) {
+        console.error('Error al verificar sesión:', error.message);
+
+        res.status(500).json({
+            mensaje: 'Error al verificar la sesión'
+        });
+    }
+}
+
 module.exports = {
-    iniciarSesion
-};  
+    iniciarSesion,
+    verificarSesion
+};
