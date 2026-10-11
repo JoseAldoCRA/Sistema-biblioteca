@@ -1,34 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catálogo de biblioteca</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="catalogo.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <h1>Sistema de biblioteca</h1>
-        <h2>Catálogo de libros</h2>
+      <h1>Sistema de biblioteca</h1>
+      <h2>Catálogo de libros</h2>
 
-        <p id="mensaje" role="status">Cargando libros...</p>
+      <form id="formulario-busqueda">
+        <label for="busqueda">Buscar libro</label>
+        <input type="search" id="busqueda" placeholder="Título, autor o ISBN" />
 
-        <div class="contenedor-tabla">
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">ISBN</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Autor</th>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Total de ejemplares</th>
-                        <th scope="col">Disponibles</th>
-                    </tr>
-                </thead>
-                <tbody id="lista-libros"></tbody>
-            </table>
-        </div>
+        <label for="categoria">Categoría</label>
+        <select id="categoria">
+          <option value="">Todas las categorías</option>
+        </select>
+
+        <button type="submit">Buscar</button>
+        <button type="button" id="limpiar">Limpiar filtros</button>
+      </form>
+
+      <p id="mensaje" role="status">Cargando libros...</p>
+
+      <div class="contenedor-tabla">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ISBN</th>
+              <th scope="col">Título</th>
+              <th scope="col">Autor</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Total de ejemplares</th>
+              <th scope="col">Disponibles</th>
+            </tr>
+          </thead>
+          <tbody id="lista-libros"></tbody>
+        </table>
+      </div>
     </main>
-</body>
+  </body>
 </html>

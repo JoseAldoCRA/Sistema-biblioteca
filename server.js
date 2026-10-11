@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config();
 
 const librosRoutes = require('./src/routes/librosRoutes');
-
+const categoriasRoutes = require('./src/routes/categoriasRoutes');
 const app = express();
 const puerto = process.env.PORT || 3001;
 
@@ -18,6 +18,7 @@ app.get('/api/estado', (req, res) => {
 });
 
 app.use('/api/libros', librosRoutes);
+app.use('/api/categorias', categoriasRoutes);
 
 app.listen(puerto, () => {
     console.log(`Servidor iniciado en http://localhost:${puerto}`);
